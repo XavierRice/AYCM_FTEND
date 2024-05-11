@@ -20,16 +20,22 @@ const Homepage = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const scrolling = useScrollPosition({
+		element: parallaxRef,
+	});
+
   return (
     <div className="d-flex justify-content-center align-items-center parallax-container">
-      <Parallax ref={parallaxRef} pages={4}
+      <Parallax className='parallax_container' ref={parallaxRef} pages={4.3}
         style={{
           width: '100vw',
           height: '100vh',
           display: "flex",
+          alignItems: 'center',
           flexDirection: "column",
           backgroundImage: `url(${CritLogo})`,
           opacity: 0.7,
+          backgroundSize: "100vw 90vh",
           backgroundRepeat: "no-repeat",
           backgroundPosition: 'center',  // Adds a white semi-transparent overlay
           mixBlendMode: 'multiply'
