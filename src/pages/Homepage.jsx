@@ -2,9 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import CritLogo from '../assets/CritLogo.png'
 
-
-// import './Homepage.css'
-
 const Homepage = () => {
   const [isResponsive, setIsResponsive] = useState(false);
   const parallaxRef = useRef(null);
@@ -20,12 +17,13 @@ const Homepage = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const scrolling = useScrollPosition({
-		element: parallaxRef,
-	});
+  // const scrolling = useScrollPosition({
+	// 	element: parallaxRef,
+	// });
 
   return (
-    <div className="d-flex justify-content-center align-items-center parallax-container">
+    <div className="d-flex flex-col justify-content-center align-items-center parallax-container" style={{height: '100vh'}}>
+
       <Parallax className='parallax_container' ref={parallaxRef} pages={4.3}
         style={{
           width: '100vw',
@@ -33,9 +31,9 @@ const Homepage = () => {
           display: "flex",
           alignItems: 'center',
           flexDirection: "column",
-          backgroundImage: `url(${CritLogo})`,
+          // backgroundImage: `url(${CritLogo})`,
           opacity: 0.7,
-          backgroundSize: "100vw 90vh",
+          // backgroundSize: "100vw 90vh",
           backgroundRepeat: "no-repeat",
           backgroundPosition: 'center',  // Adds a white semi-transparent overlay
           mixBlendMode: 'multiply'

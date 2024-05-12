@@ -5,17 +5,20 @@ import './App.css'
 
 
 //Pages
-
 import Homepage from './pages/Homepage'
+import Navbar from './components/Navbar';
+import ListenDrawer from './components/ListenDrawer';
 function App() {
 
 
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-    <Homepage/>
-    </>
+    <Router>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<Homepage />} />
+      {/* Add more routes as needed */}
+    </Routes>
+  </Router>
   )
 }
 
