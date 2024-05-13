@@ -22,11 +22,10 @@ const Navbar = () => {
     </div>
     <div className="flex justify-center">
         <div className="flex space-x-4">
-            <NavLink to="/" exact activeClassName="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Cast</NavLink>
-            <NavLink to="/team" activeClassName="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Caldron</NavLink>
-            <NavLink to="/projects" activeClassName="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Apothecary</NavLink>
-            <NavLink to="/calendar" activeClassName="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Calendar</NavLink>
-        </div>
+        <NavLink to="/" exact activeClassName="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" className="text-honk text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 font-large font-medium">Cast</NavLink>
+        <NavLink to="/" exact activeClassName="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" className="text-honk text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 font-large font-medium">Caldron</NavLink><NavLink to="/" exact activeClassName="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" className="text-honk text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 font-large font-medium">Apothecary</NavLink>
+        <NavLink to="/" exact activeClassName="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" className="text-honk text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 font-large font-medium">Events</NavLink>
+            </div>
     </div>
     <div className="flex items-center">
         <ListenDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />

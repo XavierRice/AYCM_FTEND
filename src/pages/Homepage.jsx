@@ -26,12 +26,12 @@ const Homepage = () => {
 
       <Parallax className='parallax_container' ref={parallaxRef} pages={4.3}
         style={{
-          width: '100vw',
-          height: '100vh',
+          width: '100%',
+          height: '100%',
           display: "flex",
           alignItems: 'center',
           flexDirection: "column",
-          // backgroundImage: `url(${CritLogo})`,
+          backgroundImage: `url(${CritLogo})`,
           opacity: 0.7,
           // backgroundSize: "100vw 90vh",
           backgroundRepeat: "no-repeat",
@@ -39,9 +39,6 @@ const Homepage = () => {
           mixBlendMode: 'multiply'
         }}>
         {/* Navigation - conditionally rendered based on screen size */}
-        <ParallaxLayer factor={1} style={{ zIndex: 50 }}>
-
-        </ParallaxLayer>
 
         {/* Content Layers */}
         <ParallaxLayer offset={0} speed={0.5}>

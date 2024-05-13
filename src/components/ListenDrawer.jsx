@@ -11,13 +11,16 @@ import {
   DrawerTrigger,
 } from './ui/drawer';
 
+import { Podcast } from 'lucide-react'
+
 const ListenDrawer = ({isOpen, onClose}) => {
+
 
   return (
     <Drawer isOpen={isOpen} onClose={onClose}>
     <DrawerTrigger>
-      <Button variant="outline">
-        Listen
+      <Button variant="outline" className="w-32 h-10 listen-button">
+        <Podcast className='mr-2 h-4 w-4'/>Listen
       </Button>
     </DrawerTrigger>
     <DrawerContent>
