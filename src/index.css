@@ -2,6 +2,23 @@
   @tailwind components;
   @tailwind utilities;
 
+  .text-honk {
+    font-family: 'Honk', sans-serif;
+  }
+
+  .font-large {
+    font-size: 2.25rem; /* Adjust the size as needed */
+  }
+  
+  .listen-button {
+    background-color: RGB(126, 49, 123);
+    color: whitesmoke; /* Text color */
+    padding: 0.5rem 1rem; /* Adjust padding as needed */
+    font-size: 1rem; /* Adjust font size as needed */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
   @layer base {
     :root {
       --background: 0 0% 100%;
