@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import CritLogo from '../assets/CritLogo.png'
+import erase from '../assets/erase.jpg'
 
 const Homepage = () => {
   const [isResponsive, setIsResponsive] = useState(false);
@@ -31,7 +32,7 @@ const Homepage = () => {
           display: "flex",
           alignItems: 'center',
           flexDirection: "column",
-          backgroundImage: `url(${CritLogo})`,
+          backgroundImage: `url(${erase})`,
           opacity: 0.7,
           // backgroundSize: "100vw 90vh",
           backgroundRepeat: "no-repeat",
