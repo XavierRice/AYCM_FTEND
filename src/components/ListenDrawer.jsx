@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from './ui/button';
 import {
   Drawer,
@@ -11,23 +11,34 @@ import {
   DrawerTrigger,
 } from './ui/drawer';
 
+import erase from '../assets/erase.jpg'
 import { Podcast } from 'lucide-react'
 
 const ListenDrawer = ({isOpen, onClose}) => {
+
+// const [ backgroundImage, setBackgroundImage] = useState(null);
+
+// useEffect(()=>{
+
+// useClient.fetchImage().then(image =>{
+//   setBackgroundImage(image)
+// })
+// }, [])
 
 
   return (
     <Drawer isOpen={isOpen} onClose={onClose}>
     <DrawerTrigger>
       <Button variant="outline" className="w-32 h-10 listen-button">
-        <Podcast className='mr-2 h-4 w-4'/>Listen
+        <Podcast className='mr-2 h-4 w-4'/> Listen
+     
       </Button>
     </DrawerTrigger>
-    <DrawerContent>
+    <DrawerContent style={{ backgroundImage: `url(${erase})`, backgroundSize: 'cover' }}>
       <div className="mx-auto w-full max-w-sm">
         <DrawerHeader>
-          <DrawerTitle>Listen Now</DrawerTitle>
-          <DrawerDescription>Check out this week's episode</DrawerDescription>
+          <DrawerTitle className=" text-custom-red">Listen Now</DrawerTitle>
+          <DrawerDescription className="text-white">Check out this week's episode</DrawerDescription>
         </DrawerHeader>
         <div className="p-4 pb-0">
           {/* Your Spotify player component here */}
