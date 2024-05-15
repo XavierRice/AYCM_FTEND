@@ -7,6 +7,8 @@ import './App.css'
 import Homepage from './pages/Homepage'
 import Navbar from './components/Navbar';
 
+//components
+import Cardflip from './components/CardFlip';
 
 function App() {
 
@@ -45,7 +47,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Homepage usersdDB={usersdDB} charDB={charDB} />} />
-        {/* Add more routes as needed */}
+        <Route path="/test" element={<Cardflip />} />
       </Routes>
     </Router>
   )

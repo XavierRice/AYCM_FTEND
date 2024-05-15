@@ -2,6 +2,23 @@
   @tailwind components;
   @tailwind utilities;
 
+.flip_card {
+  perspective: 1000px;
+}
+
+.flip_card_inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.flip_card_front,
+.flip_card_back {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.flip_card_back{
+  transform: rotateY('180deg');
+}
   .text-honk {
     font-family: 'Honk', sans-serif;
   }
