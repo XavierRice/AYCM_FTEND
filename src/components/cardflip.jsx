@@ -32,15 +32,15 @@ const Cardflip = () => {
                 className='flip_card_front w-[100%] h-[100%] bg-cover border-[1px] text-white rounded-lg p-4'
                 style={{ backgroundImage: `${erase}` }}
                 >
-                    <h1 className='text-2xl font-bold'> THING</h1>
-                    <p>STuff</p>
+                    <h1 className='text-2xl font-bold '> THING</h1>
+                    <p className='text-white mt-2'>STuff</p>
                 </div>
 
                 <div 
                 className='flip_card_back w-[100%] h-[100%] bg-cover border-[1px] text-white rounded-lg p-4'
                 style={{ backgroundImage: `${erase}` }}
                 >
-                    <h1 className='text-2xl font-bold'> other THING</h1>
+                    <h1 className='text-2xl font-bold '> other THING</h1>
                     <p>other STuff</p>
                 </div>
             </motion.div>
