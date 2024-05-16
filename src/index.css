@@ -10,14 +10,25 @@
   transition: transform 0.6s;
   transform-style: preserve-3d;
 }
+
 .flip_card_front,
+
 .flip_card_back {
   position: absolute;
   backface-visibility: hidden;
 }
 
 .flip_card_back{
-  transform: rotateY('180deg');
+  transform: rotateY(180deg);
+}
+
+@keyframes rotateGradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
 }
   .text-honk {
     font-family: 'Honk', sans-serif;

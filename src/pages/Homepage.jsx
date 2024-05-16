@@ -47,7 +47,7 @@ const Homepage = () => {
         <ParallaxLayer offset={0} speed={0.5}>
         </ParallaxLayer>
         <ParallaxLayer offset={1} speed={0.5}>
-          <div><Cardflip/></div>
+          <Cardflip/>
         </ParallaxLayer>
         <ParallaxLayer offset={2} speed={0.5}>
           <div>Your content for page 3</div>
