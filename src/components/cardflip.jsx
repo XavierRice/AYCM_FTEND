@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-import erase from "../assets/erase.jpg";
 
-const Cardflip = ({data}) => {
+const Cardflip = ({charObj}) => {
 
     const [isFlipped, setIsFlipped] = useState(false);
     const [isAnimating, setIsAnimating] = useState(false);
@@ -19,6 +18,7 @@ const Cardflip = ({data}) => {
             <div
                 className='flip_card w-[600px] h-[360px] rounded-md'
                 onClick={handleFlip}>
+
                 <motion.div
                     className='flip_card_inner w-[100%] h-[100%]'
                     initial={false}
@@ -27,19 +27,18 @@ const Cardflip = ({data}) => {
                     onAnimationComplete={() => setIsAnimating(false)}
                 >
                     <div
-                        className='flip_card_front w-[100%] h-[100%] bg-cover border-[1px] text-white rounded-lg p-4'
-                        style={{ backgroundImage: `${erase}` }}
+                        className='flip_card_front w-[100%] h-[100%] bg-cover border-[1px] text-black rounded-lg p-4'
+                        style={{ backgroundImage: `url(${charObj.character_img})` }}
                     >
-                        <h1 className='text-2xl font-bold '>Thing</h1>
-                        <p className='text-white mt-2'>STuff</p>
+                        <h1 className='text-2xl font-bold '>{charObj.cast_name}</h1>
+                        <p className='text-black mt-2'>{charObj.class}</p>
                     </div>
 
                     <div
-                        className='flip_card_back w-[100%] h-[100%] bg-cover border-[1px] text-white rounded-lg p-4'
-                        style={{ backgroundImage: `${erase}` }}
+                        className='flip_card_back w-[100%] h-[100%] bg-cover border-[1px] text-black rounded-lg p-4'
+                        style={{ backgroundImage: `url(${charObj.cast_img})` }}
                     >
-                        <h1 className='text-2xl font-bold '> other THING</h1>
-                        <p>other STuff</p>
+                        <h1 className='text-2xl font-bold '> {charObj.character_name}</h1>
                     </div>
                 </motion.div>
             </div>

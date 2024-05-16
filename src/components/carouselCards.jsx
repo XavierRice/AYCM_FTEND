@@ -3,9 +3,10 @@ import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Cardflip from "./CardFlip";
+import erase from '../assets/erase.jpg'
 
-
-const carouselCards = ({data}) => {
+const CarouselCards = ({charDb}) => {
+     console.log(charDb)
 
     const settings = {
         dots: true,
@@ -13,17 +14,27 @@ const carouselCards = ({data}) => {
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 2000,
+        arrows: false,
     };
     return (
+        <div 
+         className="char_carousel_container justify-center items-center w-full h-[]"
+         style={{ 
+            backgroundImage: `url(${erase})`,
+             backgroundSize: 'cover', 
+             backgroundPosition: 'center', 
+             padding: '20px' }}
+        >
         <Slider {...settings}>
-        {data.map((item, index) => (
-            <Cardflip key={index} data={item} />
+        {charDb.map((charObj, index) => (
+            <Cardflip key={index} charObj={charObj} />
         ))}
     </Slider>
+        </div>
 
     );
 };
 
-export default carouselCards;
+export default CarouselCards;

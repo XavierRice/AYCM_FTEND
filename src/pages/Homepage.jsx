@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
-import CritLogo from '../assets/CritLogo.png'
-import erase from '../assets/erase.jpg'
-import Cardflip from '../components/CardFlip'
+import CarouselCards from '../components/CarouselCards'
+import today from '../assets/today.png'
 
 
-const Homepage = () => {
+const Homepage = ({charDb, usersDb}) => {
   const [isResponsive, setIsResponsive] = useState(false);
   const parallaxRef = useRef(null);
-
+  // console.log(charDb)
 
   useEffect(() => {
     // Hide scrollbar on mount
@@ -20,31 +19,18 @@ const Homepage = () => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setIsResponsive(window.innerWidth <= 991);
-  //   };
-
-  //   window.addEventListener('resize', handleResize);
-  //   handleResize(); // Set initial state based on current window size
-
-  //   return () => window.removeEventListener('resize', handleResize);
-  // }, []);
-
-  // const scrolling = useScrollPosition({
-  // 	element: parallaxRef,
-  // });
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
+          <div class="bg-cover bg-center h-screen" style={{ backgroundImage: `url(${today})` }}>
+</div>
       <Parallax className="absolute inset-0" ref={parallaxRef} pages={4.3}>
-        <h1>content</h1>
+  
         <ParallaxLayer offset={0} speed={0.5} className="flex justify-center items-center h-full w-screen">
-          {/* Content for page 1 */}
-          <div className="text-black text-4xl">Page 1</div>
+        <CarouselCards charDb={charDb}/>
         </ParallaxLayer>
         <ParallaxLayer offset={1} speed={0.5} className="flex justify-center items-center h-full w-screen">
-          <Cardflip />
+          
         </ParallaxLayer>
         <ParallaxLayer offset={2} speed={0.5} className="flex justify-center items-center h-full w-screen">
           {/* Content for page 3 */}
