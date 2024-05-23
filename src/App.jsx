@@ -6,11 +6,14 @@ import './App.css'
 
 //Pages
 import Homepage from './pages/Homepage'
-import Navbar from './components/Navbar';
 
 //components
+import Navbar from './components/Navbar';
 import Cardflip from './components/CardFlip';
 import CarouselCards from './components/CarouselCards';
+import RepNav from './components/RepNav';
+
+
 function App() {
 
   const backend = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3400';
