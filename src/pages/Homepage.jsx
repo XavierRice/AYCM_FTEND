@@ -10,11 +10,11 @@ const Homepage = ({ charDb, usersDb }) => {
   // console.log(charDb)
 
   useEffect(() => {
-    
+        /// setting the overflow to hidden so the background no scroll bar
     document.body.style.overflow = 'hidden';
 
     return () => {
-    
+     // reset when done 
       document.body.style.overflow = 'auto';
     };
   }, []);
