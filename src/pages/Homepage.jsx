@@ -23,11 +23,16 @@ const Homepage = ({ charDb, usersDb }) => {
   return (
     <div className="relative w-full h-screen overflow-hidden">
       <div className="bg-cover bg-center h-screen" style={{ backgroundImage: `url(${ACYMBG})` }}></div>
-      <Parallax className="absolute inset-0" ref={parallaxRef} pages={4.3}>
-        <ParallaxLayer offset={0} speed={0.5} className="flex justify-center items-center h-full w-screen">
-        <div className="absolute inset-0 flex justify-center items-center h-full w-screen">
+      <Parallax className="absolute inset-0" ref={parallaxRef} pages={4}>
+        <ParallaxLayer 
+        offset={0} 
+        speed={0.5} 
+        style={{backgroundImage:`url(${hero1})`, backgroundSize: 'cover'}}
+        className="flex justify-center items-center h-full w-screen">
+        {/* <div className="absolute inset-0 flex justify-center items-center h-full w-screen">
           <img className="border border-black" src={hero1} alt="Hero Image" />
-        </div>
+        </div> */}
+        
         </ParallaxLayer>
         <ParallaxLayer offset={1} speed={0.5} className="flex justify-center items-center h-full w-screen">
           <CarouselCards charDb={charDb} />
