@@ -45,10 +45,9 @@ const ListenDrawer = ({isOpen, onClose}) => {
           <div className="mt-3 h-[120px]">
             {/* Replace this with your Spotify player */}
             <iframe
-              src="https://open.spotify.com/embed/track/7c69xKqCnQLXhTlCb9VUmb"
+              src="https://open.spotify.com/show/2X5iStxyfiMpMRPOauW6EU"
               width="100%"
               height="100%"
-              frameBorder="0"
               allowtransparency="true"
               allow="encrypted-media"
             ></iframe>
