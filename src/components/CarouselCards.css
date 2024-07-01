@@ -1,0 +1,43 @@
+/* CarouselCards.css */
+.char_carousel_container .slick-slide {
+    padding: 0 20px;
+}
+
+.char_carousel_container .slick-list {
+    margin: 0 -20px;
+}
+
+.char_carousel_container .slick-track {
+    display: flex !important;
+}
+
+.char_carousel_container .slick-slide {
+    height: inherit !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.char_carousel_container .slick-slide > div {
+    width: 100%;
+}
+
+char_carousel_container .slick-prev,
+.char_carousel_container .slick-next {
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.char_carousel_container .slick-prev {
+    left: 20px;
+}
+
+.char_carousel_container .slick-next {
+    right: 20px;
+}
+
+.char_carousel_container .slick-prev:before,
+.char_carousel_container .slick-next:before {
+    font-size: 40px;
+}

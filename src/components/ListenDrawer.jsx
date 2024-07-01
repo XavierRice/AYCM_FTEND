@@ -14,17 +14,12 @@ import {
 import erase from '../assets/erase.jpg'
 import { Podcast } from 'lucide-react'
 
-const ListenDrawer = ({isOpen, onClose}) => {
+const ListenDrawer = ({isOpen, onClose, spotify}) => {
 
-// const [ backgroundImage, setBackgroundImage] = useState(null);
+  const latestEpisode = spotify && spotify.length > 0 ? spotify[0] : null;
 
-// useEffect(()=>{
 
-// useClient.fetchImage().then(image =>{
-//   setBackgroundImage(image)
-// })
-// }, [])
-
+// console.log(spotify)
 
   return (
     <Drawer isOpen={isOpen} onClose={onClose}>
@@ -38,20 +33,25 @@ const ListenDrawer = ({isOpen, onClose}) => {
       <div className="mx-auto w-full max-w-sm">
         <DrawerHeader>
           <DrawerTitle className=" text-custom-red">Listen Now</DrawerTitle>
-          <DrawerDescription className="text-white">Check out this week's episode</DrawerDescription>
+          <DrawerDescription className="text-white">Check out this week's episode:{latestEpisode.name}</DrawerDescription>
         </DrawerHeader>
         <div className="p-4 pb-0">
-          {/* Your Spotify player component here */}
-          <div className="mt-3 h-[120px]">
-            {/* Replace this with your Spotify player */}
-            <iframe
-              src="https://open.spotify.com/show/2X5iStxyfiMpMRPOauW6EU"
-              width="100%"
-              height="100%"
-              allowtransparency="true"
-              allow="encrypted-media"
-            ></iframe>
-          </div>
+        {latestEpisode && (
+              <>
+                <h3 className="text-lg font-semibold text-white mb-2">{latestEpisode.name}</h3>
+                <p className="text-sm text-gray-300 mb-4">{latestEpisode.description}</p>
+                <div className="mt-3 h-[80px]">
+                  <iframe
+                    src={`https://open.spotify.com/embed/episode/${latestEpisode.id}`}
+                    width="100%"
+                    height="100%"
+                    frameBorder="0"
+                    allowtransparency="true"
+                    allow="encrypted-media"
+                  ></iframe>
+                </div>
+              </>
+            )}
         </div>
         <DrawerFooter>
           <DrawerClose>
