@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Button } from './ui/button';
 import {
   Drawer,
@@ -12,37 +12,30 @@ import {
 } from './ui/drawer';
 
 import erase from '../assets/erase.jpg'
-import { Podcast } from 'lucide-react'
-
-const ListenDrawer = ({isOpen, onClose, spotify}) => {
-
-  const latestEpisode = spotify && spotify.length > 0 ? spotify[0] : null;
 
 
-// console.log(spotify)
+const ListenDrawer = ({isOpen, onClose, episode, children}) => {
+console.log(episode)
 
   return (
-    <Drawer isOpen={isOpen} onClose={onClose}>
-    <DrawerTrigger>
-      <Button variant="outline" className="w-32 h-10 listen-button">
-        <Podcast className='mr-2 h-4 w-4'/> Listen
-     
-      </Button>
+    <Drawer isOpen={isOpen} onOpenChange={onClose}>
+    <DrawerTrigger asChild>
+      {children}
     </DrawerTrigger>
     <DrawerContent style={{ backgroundImage: `url(${erase})`, backgroundSize: 'cover' }}>
       <div className="mx-auto w-full max-w-sm">
         <DrawerHeader>
           <DrawerTitle className=" text-custom-red">Listen Now</DrawerTitle>
-          <DrawerDescription className="text-white">Check out this week's episode:{latestEpisode.name}</DrawerDescription>
+          <DrawerDescription className="text-white">Check out this week's episode:{episode?.name}</DrawerDescription>
         </DrawerHeader>
         <div className="p-4 pb-0">
-        {latestEpisode && (
+        {episode && (
               <>
-                <h3 className="text-lg font-semibold text-white mb-2">{latestEpisode.name}</h3>
-                <p className="text-sm text-gray-300 mb-4">{latestEpisode.description}</p>
+                <h3 className="text-lg font-semibold text-white mb-2">{episode?.name}</h3>
+                <p className="text-sm text-gray-300 mb-4">{episode?.description}</p>
                 <div className="mt-3 h-[80px]">
                   <iframe
-                    src={`https://open.spotify.com/embed/episode/${latestEpisode.id}`}
+                    src={`https://open.spotify.com/embed/episode/${episode.id}`}
                     width="100%"
                     height="100%"
                     frameBorder="0"

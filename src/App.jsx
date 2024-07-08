@@ -5,13 +5,16 @@ import './App.css'
 
 //Pages
 import Homepage from './pages/Homepage'
+import LoginPage from './pages/LoginPage';
+import HomePage2 from './pages/HomePage2';
 
 //components
+import Navbar2 from './components/NavBar2';
 import Navbar from './components/Navbar';
 import Cardflip from './components/CardFlip';
 import CarouselCards from './components/CarouselCards';
 import RepNav from './components/RepNav';
-import LoginPage from './pages/LoginPage';
+
 // import ProfilePage from './pages/ProfilePage';
 // import SignUpPage from './pages/SignUpPage';
 
@@ -23,27 +26,20 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem('token'));
   const [userId, setUserId] = useState(localStorage.getItem('userId'));
 
-  const handleLogin = (newToken, newUserId) => {
-    setToken(newToken);
-    setUserId(newUserId);
-    localStorage.setItem('token', newToken);
-    localStorage.setItem('userId', newUserId);
-  };
-
-  const handleLogout = () => {
-    setToken(null);
-    setUserId(null);
-    localStorage.removeItem('token');
-    localStorage.removeItem('userId');
-  };
-
-
   const [usersdDB, setUsersDB] = useState([]);
   const [charDB, setCharDB] = useState([]);
   const [episodes, setEpisodes] = useState([]);
   const [episodeDB, setEpisodeDB] = useState([]);
-  // const [latestEpisode, setLatestEpisode] = useState( episodes && episodes.length > 0 ? episodes[0] : null || {} )
+  const [latestEpisode, setLatestEpisode] = useState(null )
+  
+  useEffect(()=>{
+   if(episodes && episodes.length > 0){
+    setLatestEpisode(episodes[0])
+   }
 
+  }, [episodes])
+
+  console.log(latestEpisode)
 
   useEffect(() => {
     async function fetchData() {
@@ -79,19 +75,42 @@ function App() {
     }
     fetchData();
   }, [])
- 
 
-  return (
-    <Router>
-      <Navbar spotify={episodes}/>
-      <Routes>
-        <Route path="/" element={<Homepage usersdDB={usersdDB} charDb={charDB} spotify={episodes} episodeDB={episodeDB}/>} />
-        <Route path="/login" element={<LoginPage/>} />
-        {/* <Route path="/signUp" element={<SignUpPage/>} /> */}
-        {/* <Route path="/newprofile" element={<ProfilePage/>} /> */}
-      </Routes>
-    </Router>
-  )
-}
 
-export default App
+    const handleLogin = (newToken, newUserId) => {
+      setToken(newToken);
+      setUserId(newUserId);
+      localStorage.setItem('token', newToken);
+      localStorage.setItem('userId', newUserId);
+    };
+
+    const handleLogout = () => {
+      setToken(null);
+      setUserId(null);
+      localStorage.removeItem('token');
+      localStorage.removeItem('userId');
+    };
+
+
+
+    return (
+      <Router>
+        <Navbar2 latestEpisode={latestEpisode} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage2
+                usersdDB={usersdDB}
+                charDb={charDB}
+                spotify={episodes}
+                episodeDB={episodeDB} />
+            }
+          />
+          <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
+        </Routes>
+      </Router>
+    )
+  }
+
+  export default App
