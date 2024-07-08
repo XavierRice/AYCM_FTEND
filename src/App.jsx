@@ -11,13 +11,33 @@ import Navbar from './components/Navbar';
 import Cardflip from './components/CardFlip';
 import CarouselCards from './components/CarouselCards';
 import RepNav from './components/RepNav';
-
-
+import LoginPage from './pages/LoginPage';
+// import ProfilePage from './pages/ProfilePage';
+// import SignUpPage from './pages/SignUpPage';
 
 function App() {
 
   const backend = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3400';
   const podcastId = import.meta.env.VITE_PODCAST_ID;
+
+  const [token, setToken] = useState(localStorage.getItem('token'));
+  const [userId, setUserId] = useState(localStorage.getItem('userId'));
+
+  const handleLogin = (newToken, newUserId) => {
+    setToken(newToken);
+    setUserId(newUserId);
+    localStorage.setItem('token', newToken);
+    localStorage.setItem('userId', newUserId);
+  };
+
+  const handleLogout = () => {
+    setToken(null);
+    setUserId(null);
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+  };
+
+
   const [usersdDB, setUsersDB] = useState([]);
   const [charDB, setCharDB] = useState([]);
   const [episodes, setEpisodes] = useState([]);
@@ -66,6 +86,9 @@ function App() {
       <Navbar spotify={episodes}/>
       <Routes>
         <Route path="/" element={<Homepage usersdDB={usersdDB} charDb={charDB} spotify={episodes} episodeDB={episodeDB}/>} />
+        <Route path="/login" element={<LoginPage/>} />
+        {/* <Route path="/signUp" element={<SignUpPage/>} /> */}
+        {/* <Route path="/newprofile" element={<ProfilePage/>} /> */}
       </Routes>
     </Router>
   )

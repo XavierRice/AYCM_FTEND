@@ -7,8 +7,6 @@ import Logo from '../components/Logo'
 import CritLogo from '../assets/CritLogo.png'
 import AYCMLogo from '../assets/AYCMLog1.png'
 
-
-
 const Navbar = ({ spotify }) => {
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
