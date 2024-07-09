@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-//import EpisodeDrawer from './EpisodeDrawer'; 
+import ListenDrawer from '../ListenDrawer';
 
-const EpisodeCarousel = ({spotify}) => {
+const EpisodeCarousel = ({ spotify }) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [selectedEpisode, setSelectedEpisode] = useState(null);
+
 
     const openDrawer = (episode) => {
         setSelectedEpisode(episode);
         setDrawerOpen(true);
+        console.log(episode)
     };
 
     const closeDrawer = () => {
@@ -22,7 +24,7 @@ const EpisodeCarousel = ({spotify}) => {
         dots: true,
         infinite: false,
         speed: 800,
-        slidesToShow: 4,
+        slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
         arrows: true,
@@ -72,8 +74,8 @@ const EpisodeCarousel = ({spotify}) => {
                         <div key={index} className="bg-white shadow-md rounded-lg p-4">
                             <h3 className="text-xl font-semibold mb-2">{episode.name}</h3>
                             <p className="text-gray-600 mb-4">{episode.description.slice(0, 100)}...</p>
-                            <button 
-                                onClick={() => openDrawer(episode)} 
+                            <button
+                                onClick={() => openDrawer(episode)}
                                 className="text-blue-500 hover:text-blue-700 font-medium"
                             >
                                 Listen Now
@@ -82,11 +84,13 @@ const EpisodeCarousel = ({spotify}) => {
                     ))}
                 </Slider>
             </div>
-            {/* <EpisodeDrawer 
-                isOpen={drawerOpen} 
-                onClose={closeDrawer} 
-                episode={selectedEpisode} 
-            /> */}
+            {selectedEpisode && (
+                <ListenDrawer
+                    isOpen={drawerOpen}
+                    onClose={closeDrawer}
+                    episode={selectedEpisode}
+                />
+            )}
         </>
     );
 };

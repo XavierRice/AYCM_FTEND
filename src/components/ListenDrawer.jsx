@@ -14,14 +14,11 @@ import {
 import erase from '../assets/erase.jpg'
 
 
-const ListenDrawer = ({isOpen, onClose, episode, children}) => {
+const ListenDrawer = ({isOpen, onClose, episode}) => {
 console.log(episode)
 
   return (
-    <Drawer isOpen={isOpen} onOpenChange={onClose}>
-    <DrawerTrigger asChild>
-      {children}
-    </DrawerTrigger>
+    <Drawer open={isOpen} onOpenChange={onClose}>
     <DrawerContent style={{ backgroundImage: `url(${erase})`, backgroundSize: 'cover' }}>
       <div className="mx-auto w-full max-w-sm">
         <DrawerHeader>
@@ -31,8 +28,8 @@ console.log(episode)
         <div className="p-4 pb-0">
         {episode && (
               <>
-                <h3 className="text-lg font-semibold text-white mb-2">{episode?.name}</h3>
-                <p className="text-sm text-gray-300 mb-4">{episode?.description}</p>
+                <h3 className="text-lg font-semibold text-white mb-2">{episode.name}</h3>
+                <p className="text-sm text-gray-300 mb-4">{episode.description}</p>
                 <div className="mt-3 h-[80px]">
                   <iframe
                     src={`https://open.spotify.com/embed/episode/${episode.id}`}

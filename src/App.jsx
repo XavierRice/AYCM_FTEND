@@ -39,7 +39,7 @@ function App() {
 
   }, [episodes])
 
-  console.log(latestEpisode)
+ 
 
   useEffect(() => {
     async function fetchData() {
@@ -92,7 +92,7 @@ function App() {
     };
 
 
-
+console.log('this is latest episdoe:' + latestEpisode)
     return (
       <Router>
         <Navbar2 latestEpisode={latestEpisode} />
