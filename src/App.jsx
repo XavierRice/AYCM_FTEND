@@ -7,6 +7,7 @@ import './App.css'
 import Homepage from './pages/Homepage'
 import LoginPage from './pages/LoginPage';
 import HomePage2 from './pages/HomePage2';
+import SignUp from './pages/SignUp';
 
 //components
 import Navbar2 from './components/NavBar2';
@@ -109,6 +110,7 @@ function App() {
             }
           />
           <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
+          <Route path="/register" element={<SignUp />} />
         </Routes>
       </Router>
     )

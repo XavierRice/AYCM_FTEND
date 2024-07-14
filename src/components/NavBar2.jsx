@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Transition } from '@headlessui/react';
 import ListenDrawer from '../components/ListenDrawer'
 import AYCMLogo from '../assets/AYCMLog1.png'
 import { Podcast } from 'lucide-react'
+import AuthButton from './AuthButton';
 
 const Navbar2 = ({ latestEpisode }) => {
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isSpotifyLoaded, setIsSpotifyLoaded] = useState(false);
@@ -51,13 +53,15 @@ console.log('this is latest episode in Nav:' + latestEpisode)
               <Link to="/episodes" className=" text-honk text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-large">Episodes</Link>
               <Link to="/characters" className=" text-honk text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-large">Crew</Link>
               <Link to="/apothecary" className="text-honk text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-large">Apothecary</Link>
+              <Link to="/register" className=" text-honk text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-lg font-large">Join Us</Link>
               <Link to="/caldron" className="text-honk text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-large">Caldron</Link>
             </div>
           </div>
 
         
           <div className="hidden md:flex items-center space-x-4">
-            <Link to="/login" className="text-red-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-large font-medium">Login</Link>
+            {/* <Link to="/login" className="text-red-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-large font-medium">Login</Link> */}
+            <AuthButton/>
             {isSpotifyLoaded && (
               <button 
                 onClick={openDrawer} 
@@ -113,9 +117,10 @@ console.log('this is latest episode in Nav:' + latestEpisode)
           <div className="md:hidden" id="mobile-menu">
             <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <Link to="/" className="text-honk hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</Link>
-              <Link to="/episodes" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Episodes</Link>
-              <Link to="/characters" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Characters</Link>
-              <Link to="/login" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Login</Link>
+              <Link to="/episodes" className="text-honk text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Episodes</Link>
+              <Link to="/characters" className="text-honk text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Characters</Link>
+              <Link to="/register" className="text-honk text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Join Us</Link>
+              <Link to="/login" className="text-honk text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Login</Link>
             </div>
           </div>
         )}

@@ -4,17 +4,18 @@ import CarouselCards from '../components/CarouselCards';
 import CastCarousel from '@/components/CastCarousel';
 import ACYMBG from '../assets/ACYMBG.png';
 import EpisodeCarousel from '@/components/ui/EpisodeCarousel';
+import Footer from '@/components/Footer';
+import AboutContainer from '@/components/AboutContainer';
 
 const DesktopView = ({ charDb, usersDB, spotify, episodeDB }) => {
   return (
     <div className="bg-cover bg-center h-screen" style={{ backgroundImage: `url(${ACYMBG})` }}>
       <div className="container mx-auto px-4 py-8">
-
         <header className="mb-12">
           <h1 className="text-purple-600 text-4xl font-bold text-center mb-4">Welcome to Caldron</h1>
-           
           <p className=" text-purple-600 text-xl text-center"> </p>
         </header>
+         <AboutContainer></AboutContainer>
 
         <section className="mb-20 py-16">
           <div className='container'>
@@ -45,6 +46,7 @@ const DesktopView = ({ charDb, usersDB, spotify, episodeDB }) => {
           </p>
         </section>
       </div>
+      <Footer/>
     </div>
   );
 };
