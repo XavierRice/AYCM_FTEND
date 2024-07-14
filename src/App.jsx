@@ -30,15 +30,17 @@ function App() {
   const [charDB, setCharDB] = useState([]);
   const [episodes, setEpisodes] = useState([]);
   const [episodeDB, setEpisodeDB] = useState([]);
-  const [latestEpisode, setLatestEpisode] = useState(null )
+  const [latestEpisode, setLatestEpisode] = useState( null )
+
   
   useEffect(()=>{
-   if(episodes && episodes.length > 0){
-    setLatestEpisode(episodes[0])
-   }
-
+    if(episodes && episodes.length > 0){
+      setLatestEpisode(episodeDB[0])
+    }
+    
   }, [episodes])
-
+  
+  console.log( 'The lastest on App:',latestEpisode)
  
 
   useEffect(() => {
@@ -92,7 +94,6 @@ function App() {
     };
 
 
-console.log('this is latest episdoe:' + latestEpisode)
     return (
       <Router>
         <Navbar2 latestEpisode={latestEpisode} />

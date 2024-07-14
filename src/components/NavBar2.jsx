@@ -18,7 +18,7 @@ const Navbar2 = ({ latestEpisode }) => {
   }, [latestEpisode]);
 
 
-console.log('this is latest episode from app:' + latestEpisode)
+console.log('this is latest episode in Nav:' + latestEpisode)
 
 
 
@@ -55,7 +55,7 @@ console.log('this is latest episode from app:' + latestEpisode)
             </div>
           </div>
 
-          {/* Right side menu items */}
+        
           <div className="hidden md:flex items-center space-x-4">
             <Link to="/login" className="text-red-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-large font-medium">Login</Link>
             {isSpotifyLoaded && (
@@ -68,11 +68,11 @@ console.log('this is latest episode from app:' + latestEpisode)
             )}
           </div>
 
-          {/* Mobile menu button */}
+       
           <div className="md:hidden flex items-center">
             {isSpotifyLoaded && (
               <button 
-                onClick={openDrawer} 
+                onClick={()=> openDrawer(latestEpisode)} 
                 className="flex items-center text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-large font-medium mr-2"
               >
                 <Podcast className='mr-2 h-4 w-4'/> Listen
@@ -100,7 +100,6 @@ console.log('this is latest episode from app:' + latestEpisode)
         </div>
       </div>
 
-      {/* Mobile menu */}
       <Transition
         show={isMobileMenuOpen}
         enter="transition ease-out duration-100 transform"

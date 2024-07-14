@@ -11,6 +11,7 @@ const Navbar = ({ spotify }) => {
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [isSpotifyLoaded, setIsSpotifyLoaded] = useState(false)
+    
 
     useEffect(() => {
         if (spotify) {
@@ -19,10 +20,16 @@ const Navbar = ({ spotify }) => {
 
     }, [spotify])
 
+ console.log("latest episode in Nav", spotify)
+
 
     const handleOpenDrawer = () => {
         setIsDrawerOpen(true);
     };
+    const handleCloseDrawer = () => {
+        setIsDrawerOpen(false);
+    };
+
     //style={{ padding: 0, border: 'none' }} img styling
     return (
         <nav className="navbar-container bg-gray-800 w-full fixed top-0 z-10 left-0 flex justify-between items-center px-4 py-2">
@@ -59,13 +66,18 @@ const Navbar = ({ spotify }) => {
                 </div>
             </div>
             <div className="flex items-center">
-                {/* {isSpotifyLoaded && (
+                {isSpotifyLoaded && (
+                    <>
+                      <Button variant="outline" onClick={handleOpenDrawer}>
+                            Open Drawer
+                        </Button>
                     <ListenDrawer
                         isOpen={isDrawerOpen}
-                        onClose={() => setIsDrawerOpen(false)}
+                        onClose={handleCloseDrawer}
                         spotify={spotify}
                     />
-                )} */}
+                    </>
+                )}
             </div>
         </nav>
     );

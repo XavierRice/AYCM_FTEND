@@ -20,12 +20,12 @@ function AuthProv({ children }) {
     baseURL: "http://localhost:3400",
     headers: {
       "Content-Type": "application/json",
-      // Authorization: token ? `Bearer ${token}` : "",
+       Authorization: token ? `Bearer ${token}` : "",
     },
   });
 
   useEffect(() => {
-    //always has the most recent token
+    //always getting most recent token
     API.defaults.headers.common['Authorization'] = token ? `Bearer ${token}` : ""
   }, [token])
 
